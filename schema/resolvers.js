@@ -10,7 +10,13 @@ const resolvers = {
 			const id = args.id;
 			const user = _.find(UserList, { id: Number(id) });
 			return user;
-		},
+    },
+    movies: () => {
+
+    },
+    movie: () => {
+      
+    }
 	},
 };
 
