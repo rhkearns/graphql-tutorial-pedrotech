@@ -41,13 +41,13 @@ const CREATE_USER_MUTATION = gql`
 `;
 
 const DisplayData = () => {
-  const [movieSearch, setMovieSearch] = useState();
-  
+	const [movieSearch, setMovieSearch] = useState();
+
 	const [name, setName] = useState('');
 	const [username, setUsername] = useState('');
 	const [age, setAge] = useState(0);
-  const [nationality, setNationality] = useState('');
-  
+	const [nationality, setNationality] = useState('');
+
 	const { data, loading, refetch } = useQuery(QUERY_ALL_USERS);
 	const { data: movieData } = useQuery(QUERY_ALL_MOVIES);
 	const [fetchMovie, { data: movieSearchData, movieError }] =
@@ -92,9 +92,11 @@ const DisplayData = () => {
 				<button
 					onClick={() => {
 						createUser({
-							variables: { input: { name, username, age: Number(age), nationality } },
-            });
-            refetch()
+							variables: {
+								input: { name, username, age: Number(age), nationality },
+							},
+						});
+						refetch();
 					}}
 				>
 					Create User
